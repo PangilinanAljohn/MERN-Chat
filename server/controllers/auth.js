@@ -28,8 +28,8 @@ const signup = async (req, res) => {
         const hashedPassword = await bcryptjs.hash(password, salt);
 
         // GENERATE RANDOM AVATAR BASED ON GENDER
-        const profilePicMale = `https://avatar.iran.liara.run/public/boy?usrename=${username}`
-        const profilePicFemale = `https://avatar.iran.liara.run/public/girl?usrename=${username}`
+        const profilePicMale = `https://avatar.iran.liara.run/public/boy?username=${username}`
+        const profilePicFemale = `https://avatar.iran.liara.run/public/girl?username=${username}`
 
         // CREATE USER
         const newUser = new Users({
