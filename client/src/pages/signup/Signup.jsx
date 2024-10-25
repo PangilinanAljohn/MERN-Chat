@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import useSignUp from "../../hooks/useSignUp";
 
 const Signup = () => {
-    const [data, setData] = useState({
+    const [ data, setData ] = useState({
         fullName: '',
         username: '',
         password: '',

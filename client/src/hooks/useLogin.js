@@ -3,9 +3,9 @@ import toast from "react-hot-toast";
 import { useAuthContext } from "../context/AuthContext";
 
 const useLogin = () => {
-    const [loading, setLoading] = useState(false);
+    const [ loading, setLoading ] = useState(false);
 
-    const {authUser, setAuthUser} = useAuthContext();
+    const { authUser, setAuthUser } = useAuthContext();
 
     const login = async (username, password) => {
         if(!username || !password){
