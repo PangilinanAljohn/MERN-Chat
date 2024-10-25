@@ -4,8 +4,6 @@ import Conversation from "./Conversation"
 const Conversations = () => {
   const { loading, conversations } = useGetConversations();
 
-  console.log(conversations)
-
   return (
     <div className="flex flex-col py-1 overflow-auto">
       {

@@ -9,7 +9,7 @@ const LogoutButton = () => {
       {
         !loading ? (
           <BiLogOut
-            className="w-6 h-6 text-gray-800 cursor-pointer"
+            className="w-6 h-6 text-gray-800 cursor-pointer mt-3"
             onClick={logout}
           />
         ) : (
