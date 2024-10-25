@@ -2,34 +2,24 @@ import { useState } from "react"
 import toast from "react-hot-toast";
 import { useAuthContext } from "../context/AuthContext";
 
-const useSignUp = () => {
+const useLogin = () => {
     const [loading, setLoading] = useState(false);
 
-    const {authUser, setAuthUser} = useAuthContext(); 
+    const {authUser, setAuthUser} = useAuthContext();
 
-    const signup = async({fullName, username, password, confirmPassword, gender}) => {
-        if(!fullName || !username || !password || !confirmPassword || !gender){
+    const login = async (username, password) => {
+        if(!username || !password){
             toast.error("Please fill all fields")
-            return false;
-        }
-
-        if(password !== confirmPassword){
-            toast.error("Password do not match")
-            return false;
-        }
-
-        if(password.length < 6){
-            toast.error("Password must at least 6 characters")
             return false;
         }
 
         setLoading(true);
 
         try {
-            const res = await fetch("/api/auth/signup", {
+            const res = await fetch("/api/auth/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({fullName, username, password, confirmPassword, gender})
+                body: JSON.stringify({ username, password })
             });
 
             const data = await res.json();
@@ -47,7 +37,7 @@ const useSignUp = () => {
         }
     }
 
-    return { loading, signup }
+    return { loading, login }
 }
 
-export default useSignUp
+export default useLogin

@@ -20,7 +20,7 @@ const Signup = () => {
 
     return (
         <div className='flex flex-col items-center justify-center min-w-96 mx-auto'>
-            <div className="w-full max-w-md p-6 rounded-lg shadow-lg bg-white bg-opacity-90">
+            <div className="w-full max-w-md p-6 rounded-lg shadow-lg bg-white">
                 <h1 className='text-3xl font-semibold text-center text-gray-800 mb-6'>
                     Create a new account
                 </h1>
@@ -113,8 +113,11 @@ const Signup = () => {
                     <Link to="/login" className='text-sm text-gray-800 hover:underline hover:text-blue-600 inline-block mt-6'>
                         Already have an account?
                     </Link>
-                    <button className='btn btn-primary btn-block text-white btn-sm mt-4'>
-                        Sign Up
+                    <button 
+                        className='btn btn-primary btn-block text-white btn-sm mt-4'
+                        disabled={loading}
+                    >
+                        {loading ? <span className="loading loading-spinner"></span> : "Sign Up"}
                     </button>
                 </form>
             </div>
